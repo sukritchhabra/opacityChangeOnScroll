@@ -24,7 +24,7 @@ $(document).ready(function(){
             if(distanceOfElementFromTop < heightOfWindow) {
                 newOpacity = 1 - ((distanceOfElementFromTop - currentScroll)/distanceOfElementFromTop);
             } else {
-                newOpacity = 1 - ((distanceOfElementFromTop - currentScroll)/heightOfElement);
+                newOpacity = 1 - ((distanceOfElementFromTop - currentScroll)/heightOfWindow);
             }
             
             /**
@@ -46,7 +46,6 @@ $(document).ready(function(){
              */
 
             if(currentScroll <= distanceOfElementFromTop) {
-                console.log("setting opacity to: " + newOpacity);
                 $(this).css("opacity", newOpacity);
             } else {
                 $(this).css("opacity", "1");
@@ -64,11 +63,10 @@ $(document).ready(function(){
             if(distanceOfElementFromTop < heightOfWindow) {
                 newOpacity = ((distanceOfElementFromTop - currentScroll)/distanceOfElementFromTop);
             } else {
-                newOpacity = ((distanceOfElementFromTop - currentScroll)/heightOfElement);
+                newOpacity = ((distanceOfElementFromTop - currentScroll)/heightOfWindow);
             }
 
             if(currentScroll <= distanceOfElementFromTop) {
-                console.log("setting opacity to: " + newOpacity);
                 $(this).css("opacity", newOpacity);
             } else {
                 $(this).css("opacity", "0");
