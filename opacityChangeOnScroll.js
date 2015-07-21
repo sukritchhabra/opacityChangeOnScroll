@@ -19,25 +19,31 @@ $(document).ready(function(){
             var heightOfWindow = $(window).height();
             var heightOfElement = $(this).height();
 
-            var newOpacity = 1 - ((distanceOfElementFromTop - currentScroll)/heightOfWindow);
+            var newOpacity;
 
-        /**
-         * To decrease on scroll down remove the "1 -".
-         * Also change the .css("opacity", "1") to .css("opacity", "0") on line 42
-         */
+            if(distanceOfElementFromTop < heightOfWindow) {
+                newOpacity = 1 - ((distanceOfElementFromTop - currentScroll)/distanceOfElementFromTop);
+            } else {
+                newOpacity = 1 - ((distanceOfElementFromTop - currentScroll)/heightOfElement);
+            }
+            
+            /**
+             * To decrease on scroll down remove the "1 -".
+             * Also change the .css("opacity", "1") to .css("opacity", "0") on line 42
+             */
 
-        /**
-         * LOGIC
-         *
-         * If you're at the position where if you scroll the exact height of the window the top of your element will be the top of the page(not document, page),
-         * that means (distanceOfElementFromTop(top of the document)-currentScroll) = heightOfWindow;
-         * this yeilds an opacity 0. Basically when the element is just below the current window, i.e.,
-         * one more pixel of a scroll down will reveal one pixel of the elementon the page, we want the opacity to be zero.
-         *
-         * eg: lets say windowHeight=1000; distanceOfElementFromTop(top of the document)=4000; currntScroll(the amount you've scrolled right now)=3000;
-         * This means that on scrolling 1px currentScroll=3001; You are now 999px away from reaching 4000px but our element also exists at 4000px.
-         * So when you reach a currentScroll=4000, the top of our element will align with the to of the page.
-         */
+            /**
+             * LOGIC
+             *
+             * If you're at the position where if you scroll the exact height of the window the top of your element will be the top of the page(not document, page),
+             * that means (distanceOfElementFromTop(top of the document)-currentScroll) = heightOfWindow;
+             * This yeilds an opacity 0. Basically when the element is just below the current window, i.e.,
+             * one more pixel of a scroll down will reveal one pixel of the elementon the page, we want the opacity to be zero.
+             *
+             * eg: lets say windowHeight=1000; distanceOfElementFromTop(top of the document)=4000; currntScroll(the amount you've scrolled right now)=3000;
+             * This means that on scrolling 1px currentScroll=3001; You are now 999px away from reaching 4000px but our element also exists at 4000px.
+             * So when you reach a currentScroll=4000, the top of our element will align with the top of the page.
+             */
 
             if(currentScroll <= distanceOfElementFromTop) {
                 console.log("setting opacity to: " + newOpacity);
@@ -53,7 +59,13 @@ $(document).ready(function(){
             var heightOfWindow = $(window).height();
             var heightOfElement = $(this).height();
 
-            var newOpacity = ((distanceOfElementFromTop - currentScroll)/heightOfWindow);
+            var newOpacity;
+
+            if(distanceOfElementFromTop < heightOfWindow) {
+                newOpacity = ((distanceOfElementFromTop - currentScroll)/distanceOfElementFromTop);
+            } else {
+                newOpacity = ((distanceOfElementFromTop - currentScroll)/heightOfElement);
+            }
 
             if(currentScroll <= distanceOfElementFromTop) {
                 console.log("setting opacity to: " + newOpacity);
