@@ -21,12 +21,33 @@ $(document).ready(function(){
 
             var newOpacity;
 
+            var startPercentage = $(this).attr('data-start');   // Percentage offset from BOTTOM to start "animation"
+            var endPercentage = $(this).attr('data-end');       // Percentage offset from TOP to start "animation"
+
+            if(startPercentage == undefined) {
+                startPercentage = 0;
+            } else {
+                startPercentage = parseInt(startPercentage);
+            }
+
+            if(endPercentage == undefined) {
+                endPercentage = 0;
+            } else {
+                endPercentage = parseInt(endPercentage);
+            }
+
+            if (startPercentage > endPercentage) {
+                throwError_startGreaterThanEnd();
+            }
+
+            var endValue = endPercentage*heightOfWindow/100;
+
             if(distanceOfElementFromTop < heightOfWindow) {
                 newOpacity = 1 - ((distanceOfElementFromTop - currentScroll)/distanceOfElementFromTop);
             } else {
-                newOpacity = 1 - ((distanceOfElementFromTop - currentScroll)/heightOfWindow);
+                newOpacity = 1 - ((distanceOfElementFromTop - currentScroll - endValue)/((heightOfWindow*(100 - startPercentage)/100)-endValue));
             }
-            
+
             /**
              * To decrease on scroll down remove the "1 -".
              * Also change the .css("opacity", "1") to .css("opacity", "0") on line 42
@@ -60,10 +81,32 @@ $(document).ready(function(){
 
             var newOpacity;
 
+            var startPercentage = $(this).attr('data-start');       // Percentage offset from BOTTOM to start "animation"
+            var endPercentage = $(this).attr('data-end');           // Percentage offset from TOP to start "animation"
+
+            if(startPercentage == undefined) {
+                startPercentage = 0;
+            } else {
+                startPercentage = parseInt(startPercentage);
+            }
+
+            if(endPercentage == undefined) {
+                endPercentage = 0;
+            } else {
+                endPercentage = parseInt(endPercentage);
+            }
+
+            if (startPercentage > endPercentage) {
+                throwError_startGreaterThanEnd();
+            }
+
+            var endValue = endPercentage*heightOfWindow/100;
+
             if(distanceOfElementFromTop < heightOfWindow) {
                 newOpacity = ((distanceOfElementFromTop - currentScroll)/distanceOfElementFromTop);
             } else {
-                newOpacity = ((distanceOfElementFromTop - currentScroll)/heightOfWindow);
+                newOpacity = ((distanceOfElementFromTop - currentScroll - endValue)/((heightOfWindow*(100 - startPercentage)/100)-endValue));
+                console.log(newOpacity);
             }
 
             if(currentScroll <= distanceOfElementFromTop) {
@@ -94,5 +137,9 @@ $(document).ready(function(){
                 $(this).css("opacity", newOpacity);
             }
         });
+
+        function throwError_startGreaterThanEnd() {
+            alert('ERROR!\n\'data-start\' attribute has a greater value than \'data-end\' attribute');
+        }
     });
 });
