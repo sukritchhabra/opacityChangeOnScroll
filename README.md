@@ -37,21 +37,21 @@ or
 ### Data-Attributes
 
 #### data-start
-##### Start changing opacity of the element when it's offset by `x% of the windows height` from the *__bottom__* of the window 
+Start changing opacity of the element when it's offset by `x% of the windows height` from the *__bottom__* of the window 
 ```html
 <img class="increase-on-scroll-down" data-start="20" src="img1.png">
 ```
 * Start changing opacity of the element when it is at an offset of  `20% of the windows height` from the *__bottom__* of the window 
 
 #### data-end
-##### Stop changing opacity of the element when it's offset by `x% of the windows height` from the *__top__* of the window 
+Stop changing opacity of the element when it's offset by `x% of the windows height` from the *__top__* of the window 
 ```html
 <img class="increase-on-scroll-down" data-end="50" src="img1.png">
 ```
 * Start changing opacity of the element when it is at an offset of  `50% of the windows height` from the *__top__* of the window 
 
 #### Use Together
-##### Start changing opacity of the element when it's offset by `x% of the windows height` from the *__bottom__* of the window and Stop changing opacity of the element when it's offset by `y% of the windows height` from the *__top__* of the window 
+Start changing opacity of the element when it's offset by `x% of the windows height` from the *__bottom__* of the window and Stop changing opacity of the element when it's offset by `y% of the windows height` from the *__top__* of the window 
 ```html
 <img class="increase-on-scroll-down" data-start="30" data-end="20" src="img1.png">
 ```
