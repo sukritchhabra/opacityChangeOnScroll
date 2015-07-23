@@ -36,16 +36,16 @@ $(document).ready(function(){
                 endPercentage = parseInt(endPercentage);
             }
 
-            if (startPercentage > endPercentage) {
+            if (endPercentage > startPercentage) {
                 throwError_startGreaterThanEnd();
             }
 
-            var endValue = endPercentage*heightOfWindow/100;
+            var endValue = heightOfWindow*endPercentage/100;
 
             if(distanceOfElementFromTop < heightOfWindow) {
                 newOpacity = 1 - ((distanceOfElementFromTop - currentScroll)/distanceOfElementFromTop);
             } else {
-                newOpacity = 1 - ((distanceOfElementFromTop - currentScroll - endValue)/((heightOfWindow*(100 - startPercentage)/100)-endValue));
+                newOpacity = 1 - ((distanceOfElementFromTop - currentScroll - endValue)/((heightOfWindow*(100 - startPercentage-endPercentage)/100)));
             }
 
             /**
@@ -96,16 +96,38 @@ $(document).ready(function(){
                 endPercentage = parseInt(endPercentage);
             }
 
-            if (startPercentage > endPercentage) {
+            if (endPercentage > startPercentage) {
                 throwError_startGreaterThanEnd();
             }
 
-            var endValue = endPercentage*heightOfWindow/100;
+            var endValue = heightOfWindow*endPercentage/100;
 
             if(distanceOfElementFromTop < heightOfWindow) {
                 newOpacity = ((distanceOfElementFromTop - currentScroll)/distanceOfElementFromTop);
             } else {
-                newOpacity = ((distanceOfElementFromTop - currentScroll - endValue)/((heightOfWindow*(100 - startPercentage)/100)-endValue));
+                newOpacity = ((distanceOfElementFromTop - currentScroll - endValue)/((heightOfWindow*(100 - startPercentage-endPercentage)/100)));
+               
+               /**
+                * LOGIC
+                *
+                * The calculation above was different before the addition of different attributes. 
+                * newOpacity = ((distanceOfElementFromTop - currentScroll )/heightOfWindow);
+                *
+                * For all purposes ahead lets assume distanceOfElementFromTop = 4000; currentScroll = 3000; heightOfWindow = 1000;
+                *     In the earlier calculation difference(Step) between Opacity1(currentScroll = 3000) and Opacity2(currentScroll = 3001)
+                *     was 1/1000 i.e. 0.001. That means, after a scroll of 1px, OPacity would decrease by 0.001;
+                *     [for increase-on-scroll-down, it wouuld increase instead of decreasing]
+                *
+                *     Therefore, after a scroll of heightOfWindow, i.e., 1000px, the opacity would have decrease a complete 1 (from 1 -> 0)
+                *     With the data-attributes, We want the step to be biggere because we are defining a region of the window 
+                *     where we want this change to take place. 
+                *     So if a user says, data-start = 20 and data-end = 40, i.e., start change when element is at a distance 80% away 
+                *     from the top and end it when it is at a distance 40% away from the top, In our example we want the change to take 
+                *     place between 800px and 400px. Therefore the step needs to be 1/(800-400) => 1/(heightOfWindow*((100 - startPercentage)-endPercentage)/100)
+                *
+                *     But we also want it to start from 1/0 => (distanceOfElementFromTop - currentScroll - (heightOfWindow*endPercentage/100) )
+                */
+
                 console.log(newOpacity);
             }
 
@@ -139,7 +161,7 @@ $(document).ready(function(){
         });
 
         function throwError_startGreaterThanEnd() {
-            alert('ERROR!\n\'data-start\' attribute has a greater value than \'data-end\' attribute');
+            alert('ERROR!\n\'data-end\' attribute has a greater value than \'data-start\' attribute');
         }
     });
 });
