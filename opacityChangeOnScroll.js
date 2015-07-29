@@ -36,7 +36,7 @@ $(document).ready(function(){
                 endPercentage = parseInt(endPercentage);
             }
 
-            if (endPercentage > startPercentage) {
+            if ((endPercentage + startPercentage) > 100) {
                 throwError_startGreaterThanEnd();
             }
 
@@ -96,7 +96,7 @@ $(document).ready(function(){
                 endPercentage = parseInt(endPercentage);
             }
 
-            if (endPercentage > startPercentage) {
+            if ((endPercentage + startPercentage) > 100) {
                 throwError_startGreaterThanEnd();
             }
 
