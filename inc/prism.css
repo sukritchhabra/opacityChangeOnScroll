@@ -9,10 +9,10 @@ code[class*="language-"],
 pre[class*="language-"] {
 	color: black;
 	text-shadow: 0 1px white;
-	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
 	direction: rtl;
 	text-align: left;
-	white-space: pre;
+	white-space: inherit;
 	word-spacing: normal;
 	word-break: normal;
 	line-height: 1.5;

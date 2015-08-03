@@ -15,3 +15,19 @@ body {
         margin-left: 150px;
     }
   }
+  
+  .tag {
+    color: #63a35c !important;
+  }
+
+  .punctuation {
+    color: black !important;
+  }
+
+  .attr-name {
+    color: #795da3 !important;
+  }
+
+  .attr-value {
+    color: #183691 !important;
+  }
