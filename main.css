@@ -3,98 +3,98 @@ body {
   }
 
 ul.nav-pills {
-      top: 20px;
-      position: fixed;
+    top: 20px;
+    position: fixed;
 }
 
-  .tag {
+.tag {
     color: #63a35c !important;
-  }
+}
 
-  .punctuation {
+.punctuation {
     color: black !important;
-  }
+}
 
-  .attr-name {
+.attr-name {
     color: #795da3 !important;
-  }
+}
 
-  .attr-value {
+.attr-value {
     color: #183691 !important;
-  }
+}
 
-  .option:not(:first-of-type),
-  .attribute:not(:first-of-type),
-  section:not(:first-of-type) {
+.option:not(:first-of-type),
+.attribute:not(:first-of-type),
+section:not(:first-of-type) {
     margin-top: 10vh;
-  }
+}
 
-  section h1 {
+section h1 {
     padding: 5px;
     border-bottom: solid 1px rgba(0,0,0,0.1);
-  }
+}
 
-  section div {
+section div {
     padding-left: 15px;
-  }
+}
 
-  h4 {
+h4 {
     padding-left: 10px;
-  }
+}
 
-  b i {
+b i {
     color: #058E0B;
-  }
+}
 
 section img {
-  width: 100%;
-  border-radius: 10px;
+    width: 100%;
+    border-radius: 10px;
 }
 
 
 
 
-  /**
-   * Quote Style
-   */
-  
-  blockquote {
-  background: #f9f9f9;
-  border-style: solid;
-  border-color: #f9f9f9;
-  font-size: 4vh;
-  font-style: italic;
-  border-radius: 10px; 
-  margin: 1.5em 10px;
-  padding: 0.5em 10px;
-  quotes: "\201C""\201D""\2018""\2019";
+/**
+* Quote Style
+*/
+
+blockquote {
+    background: #f9f9f9;
+    border-style: solid;
+    border-color: #f9f9f9;
+    font-size: 4vh;
+    font-style: italic;
+    border-radius: 10px;
+    margin: 1.5em 10px;
+    padding: 0.5em 10px;
+    quotes: "\201C""\201D""\2018""\2019";
 }
 
 blockquote:before {
-  color: #ccc;
-  content: open-quote;
-  font-family: Georgia, serif;
-  font-size: 3em;
-  line-height: 0.1em;
-  margin-right: 0.25em;
-  vertical-align: -0.4em;
+    color: #ccc;
+    content: open-quote;
+    font-family: Georgia, serif;
+    font-size: 3em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em;
 }
 
 blockquote:after {
-  color: #ccc;
-  content: close-quote;
-  font-family: Georgia, serif;
-  font-size: 3em;
-  line-height: 0.1em;
-  margin-right: 0.25em;
-  vertical-align: -0.4em;
+    color: #ccc;
+    content: close-quote;
+    font-family: Georgia, serif;
+    font-size: 3em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em;
 }
 
 blockquote p {
-  display: inline;
+    display: inline;
 }
 
 blockquote + cite {
-  font-size: 1.5em;
-  margin-left: 40px;
+    font-size: 1.5em;
+    margin-left: 40px;
 }
