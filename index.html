@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <link href='https://fonts.googleapis.com/css?family=Cousine' rel='stylesheet' type='text/css'>
+        <link href="https://fonts.googleapis.com/css?family=Cousine" rel="stylesheet" type="text/css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -11,78 +11,150 @@
         <script src="inc/prism.js"></script>
 
         <link rel="stylesheet" href="main.css">
-        <script src="sript.js"></script>
+        <script src="opacityChangeOnScroll.js"></script>
+        <script src="script.js"></script>
 
     </head>
 
     <body data-spy="scroll" data-target="#myScrollspy" data-offset="20">
         <div class="container">
-          <div class="row">
-            <nav class="col-md-3" id="myScrollspy">
-              <ul class="nav nav-pills nav-stacked">
-                <li class="active"><a href="#section1">Section 1</a></li>
-                <li><a href="#section2">Section 2</a></li>
-                <li><a href="#section3">Section 3</a></li>
-              </ul>
-            </nav>
+            <div class="row">
+                <nav class="col-md-2" id="myScrollspy">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li class="active"><a href="#intro">Introduction</a></li>
+                        <li><a href="#options">Options</a></li>
+                        <li><a href="#attributes">Custom Attributes</a></li>
+                    </ul>
+                </nav>
 
-            <div class="col-md-9">
-              <div id="intro">
-                <h1>Introduction</h1>
-                <p>opacityChangeOnScroll as the name suggests, is a Javascript library that makes it easy to alter the opacity of an element on the page using the scroll event.</p>
-              </div>
-              
-              <div id="options">
-                <h1>Options</h1>
-                <div>
-                    <h3>increase-on-scroll-down</h3>
-                    <p>Increases the opacity of the element as you scroll down.</p>
-                    <pre>
-                        <code class="language-markup">
-                            &lt;img class='increase-on-scroll-down' src='img1.png' alt>
-                        </code>
-                    </pre>
-                </div>
-                
-                <div>
-                    <h3>increase-on-scroll-down</h3>
-                    <p>Decreases the opacity of the element as you scroll down.</p>
-                    <pre>
-                        <code class="language-markup">
-                            &lt;img class='decrease-on-scroll-down' src='img1.png' alt>
-                        </code>
-                    </pre>
-                </div>
-                
-                <div>
-                    <h3>increase-on-scroll-down</h3>
-                    <p>Increase First, then Decrease opacity of the element as you scroll down</p>
-                    <pre>
-                        <code class="language-markup">
-                            &lt;img class='increase-on-scroll-down' src='img1.png' alt>
-                        </code>
-                    </pre>
-                </div>
-              </div>
-              
-              <div id="section3">
-                <h1>Section 3</h1>
-                    <pre>
-                        <code class="language-markup">
-                            &lt;img class='increase-on-scroll-down' src='img1.png' alt>
-                        </code>
-                    </pre>
-              </div>
-              
-              <div id="section41">
-                <h1>Section 4-1</h1>
-                <p>Try to scroll this section and look at the navigation list while scrolling!</p>
-              </div>
-              
-              <div id="section42">
-                <h1>Section 4-2</h1>
-                <p>Try to scroll this section and look at the navigation list while scrolling!</p>
-              </div>
+            <div class="col-md-10">
+                <section id="intro">
+                    <h1>Introduction</h1>
+                    <p>opacityChangeOnScroll as the name suggests, is a Javascript library that makes it easy to alter the opacity of an element on the page using the scroll event.</p>
+                </section>
+
+                <section id="gettingStarted">
+                    <h1>Getting Started</h1>
+                    <div>
+                        <h3>Dependencies</h3>
+                        <h4>jQuery</h4>
+                        <pre>
+                            <code class="language-markup">
+                                &lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" type></script>
+                            </code>
+                        </pre>
+
+                        <p></p>
+
+                        <h3>Loading the Library</h3>
+                        <pre>
+                            <code class="language-markup">
+                                &lt;script src="https://cdn.rawgit.com/sukritchhabra/opacityChangeOnScroll/master/opacityChangeOnScroll.js" type></script>
+                            </code>
+                        </pre>
+                    </div>
+                </section>
+
+                <section id="options">
+                    <h1>Options</h1>
+                    <div class="option">
+                        <h3>increase-on-scroll-down</h3>
+                        <p>Increases the opacity of the element as you scroll down.</p>
+                        <pre>
+                            <code class="language-markup">
+                                &lt;img class="increase-on-scroll-down" src="img1.png" alt>
+                            </code>
+                        </pre>
+
+                        <div class="example">
+                            <img src="imgs/fightClub.jpg" alt="" class="increase-on-scroll-down">
+                        </div>
+                    </div>
+
+                    <div class="option">
+                        <h3>decrease-on-scroll-down</h3>
+                        <p>Decreases the opacity of the element as you scroll down.</p>
+                        <pre>
+                            <code class="language-markup">
+                                &lt;img class="decrease-on-scroll-down" src="img1.png" alt>
+                            </code>
+                        </pre>
+
+                        <div class="example">
+                            <div class="decrease-on-scroll-down">
+                                <img src="imgs/pulpFiction.jpg" alt="" class="decrease-on-scroll-down">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="option">
+                        <h3>increase-decrease-on-scroll-down</h3>
+                        <p>Increase First, then Decrease opacity of the element as you scroll down</p>
+                        <pre>
+                            <code class="language-markup">
+                                &lt;img class="increase-decrease-on-scroll-down" src="img1.png" alt>
+                            </code>
+                        </pre>
+
+                        <div class="example">
+                            <div class="increase-decrease-on-scroll-down">
+                                <blockquote>
+                                    <p>
+                                        Hey, you created me. I didn't create some loser alter-ego to make myself feel better. Take some responsibility!
+                                    </p>
+                                </blockquote>
+                                <cite>- Tyler Durden, Fight Club</cite>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="attributes">
+                    <h1>Custom Attributes</h1>
+                    <div class="attribute">
+                        <h3>data-start</h3>
+                        <p>Use this to define where the change/animation begins.</p>
+                        <p>Value assigned to this attribute specifies the percentage of the windows height, from the <b><i>bottom</i></b> of the window where the change begins.</p>
+                        <pre>
+                            <code class="language-markup">
+                                &lt;img class="increase-on-scroll-down" data-start="20" src="img1.png" alt>
+                            </code>
+                        </pre>
+
+                        <div class="example">
+                            <img class="increase-on-scroll-down" src="img1.png" alt="">
+                        </div>
+                    </div>
+
+                    <div class="attribute">
+                        <h3>data-end</h3>
+                        <p>Use this to define where the change/animation ends.</p>
+                        <p>Value assigned to this attribute specifies the percentage of the windows height, from the <b><i>top</i></b> of the window where the change ends.</p>
+                        <pre>
+                            <code class="language-markup">
+                                &lt;img class="increase-on-scroll-down" data-end="30" src="img1.png" alt>
+                            </code>
+                        </pre>
+
+                        <div class="example">
+                            <img class="increase-on-scroll-down" src="img1.png" alt="">
+                        </div>
+                    </div>
+
+                    <div class="attribute">
+                        <h3>Use Together</h3>
+                        <p>Any of the above attributs above can be used together.</p>
+                        <pre>
+                            <code class="language-markup">
+                                &lt;img class="increase-on-scroll-down" data-start="40" data-end="30" src="img1.png" alt>
+                            </code>
+                        </pre>
+
+                        <div class="example">
+                            <img class="increase-on-scroll-down" src="img1.png" alt="">
+                        </div>
+                    </div>
+                </section>
             </div>
           </div>
         </div>
