@@ -144,29 +144,93 @@ $(document).ready(function(){
             var newOpacity;
 
             var switchPercentage = $(this).attr('data-switch');     //Percentage height of the window at which the switch will take place
+            var endPercentage = $(this).attr('data-end');
 
-            if(switchAt == undefined) {
-                startPercentage = 50;
+            if(switchPercentage == undefined) {
+                switchPercentage = 50;
             } else {
-                startPercentage = parseInt(startPercentage);
+                switchPercentage = 100 - parseInt(switchPercentage);
             }
 
-            var switcAt = heightOfWindow*switchPercentage/100;
-            distanceOfElementFromTop = distanceOfElementFromTop - switcAt;
+            if(endPercentage == undefined) {
+                endPercentage = 0;
+            } else {
+                endPercentage = parseInt(endPercentage);
+            }
+
+            var switchAt = heightOfWindow*switchPercentage/100;
+            distanceOfElementFromTop = distanceOfElementFromTop - switchAt;
 
             if (currentScroll <= distanceOfElementFromTop) {
                 if(distanceOfElementFromTop < heightOfWindow) {
                     newOpacity = 1 - ((distanceOfElementFromTop - currentScroll)/distanceOfElementFromTop);
                 } else {
-                    newOpacity = 1 - ((distanceOfElementFromTop - currentScroll)/((heightOfWindow*(100 - startPercentage-endPercentage)/100)));
+                    newOpacity = 1 - ((distanceOfElementFromTop - currentScroll)/((heightOfWindow)));
                 }
+                console.log(newOpacity);
                 $(this).css("opacity", newOpacity);
             } else if (currentScroll > distanceOfElementFromTop) {
                 if(distanceOfElementFromTop < heightOfWindow) {
-                newOpacity = ((distanceOfElementFromTop - currentScroll)/distanceOfElementFromTop);
-            } else {
-                newOpacity = ((distanceOfElementFromTop - currentScroll - endValue)/((heightOfWindow*(100 - startPercentage-endPercentage)/100)));
+                    newOpacity = 1 - ((distanceOfElementFromTop - currentScroll)/distanceOfElementFromTop);
+                } else {
+                    newOpacity = 1 - ((distanceOfElementFromTop - currentScroll)/((heightOfWindow * (100 - endPercentage - switchPercentage)/100)));
+                }
+                console.log(newOpacity);
+                $(this).css("opacity", newOpacity);
             }
+        });
+
+        $(".decrease-increase-on-scroll-down").each(function(index, el) {
+            var distanceOfElementFromTop = $(this).offset().top;
+            var currentScroll = $(window).scrollTop();
+            var heightOfWindow = $(window).height();
+            var heightOfElement = $(this).height();
+            var newOpacity;
+
+            var switchPercentage = $(this).attr('data-switch');     //Percentage height of the window at which the switch will take place
+            var endPercentage = $(this).attr('data-end');
+
+            if(switchPercentage == undefined) {
+                switchPercentage = 50;
+            } else {
+                switchPercentage = 100 - parseInt(switchPercentage);
+            }
+
+            if(endPercentage == undefined) {
+                endPercentage = 0;
+            } else {
+                endPercentage = parseInt(endPercentage);
+            }
+
+            var switchAt = heightOfWindow*switchPercentage/100;
+            distanceOfElementFromTop = distanceOfElementFromTop - switchAt;
+
+
+            if (currentScroll <= distanceOfElementFromTop) {
+                if(distanceOfElementFromTop < heightOfWindow) {
+                    newOpacity = 1 - ((distanceOfElementFromTop - currentScroll)/distanceOfElementFromTop);
+                } else {
+                    newOpacity = 1 - ((distanceOfElementFromTop - currentScroll)/((heightOfWindow)));
+                }
+                console.log(newOpacity);
+                $(this).css("opacity", newOpacity);
+            }
+
+            if (currentScroll >= distanceOfElementFromTop) {
+                if(distanceOfElementFromTop < heightOfWindow) {
+                    newOpacity = 1 - ((distanceOfElementFromTop - currentScroll)/distanceOfElementFromTop);
+                } else {
+                    newOpacity = 1 - ((distanceOfElementFromTop - currentScroll)/((heightOfWindow * (100 - endPercentage - switchPercentage)/100)));
+                }
+                console.log(newOpacity);
+                $(this).css("opacity", newOpacity);
+            } else if (currentScroll < distanceOfElementFromTop) {
+                if(distanceOfElementFromTop < heightOfWindow) {
+                    newOpacity = 1 - ((distanceOfElementFromTop - currentScroll)/distanceOfElementFromTop);
+                } else {
+                    newOpacity = 1 - ((distanceOfElementFromTop - currentScroll)/((heightOfWindow)));
+                }
+                console.log(newOpacity);
                 $(this).css("opacity", newOpacity);
             }
         });
