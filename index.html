@@ -30,7 +30,9 @@
             <div class="col-md-10">
                 <section id="intro">
                     <h1>Introduction</h1>
-                    <p>opacityChangeOnScroll as the name suggests, is a Javascript library that makes it easy to alter the opacity of an element on the page using the scroll event.</p>
+                    <div>
+                        <p>opacityChangeOnScroll as the name suggests, is a Javascript library that makes it easy to alter the opacity of an element on the page using the scroll event.</p>
+                    </div>
                 </section>
 
                 <section id="gettingStarted">
@@ -133,7 +135,9 @@
                         </pre>
 
                         <div class="example">
-                            <img class="increase-on-scroll-down" data-start="50" src="imgs/theUsualSuspects.png" alt>
+                            <div class="increase-on-scroll-down" data-start="50">
+                                <img src="imgs/theUsualSuspects.png" alt>
+                            </div>
                         </div>
                     </div>
 
@@ -148,7 +152,26 @@
                         </pre>
 
                         <div class="example">
-                            <img class="decrease-on-scroll-down" data-end="30" src="imgs/interstellar.png" alt="">
+                            <div class="decrease-on-scroll-down" data-end="30">
+                                <img src="imgs/interstellar.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="attribute">
+                        <h3>data-switch</h3>
+                        <p>This is a special attribute <b>only</b> for use with <span class="inline-code">increase-decrease-on-scroll-down</span> or <span class="inline-code">decrease-increase-on-scroll-down</span>.</p>
+                        <p>Value assigned to this attribute specifies where the switch from <span class="inline-code">increase -> decrease</span> and/or <span class="inline-code">decrease -> increase</span> takes place.</p>
+                        <pre>
+                            <code class="language-markup">
+                                &lt;img class="increase-decrease-on-scroll-down" data-swtich="40" data-end="10" src="img1.png" alt>
+                            </code>
+                        </pre>
+
+                        <div class="example">
+                            <div class="increase-decrease-on-scroll-down" data-swtich="40" data-end="10">
+                                <img src="imgs/cod.jpg" alt="">
+                            </div>
                         </div>
                     </div>
 
@@ -157,12 +180,14 @@
                         <p>Any of the above attributs above can be used together.</p>
                         <pre>
                             <code class="language-markup">
-                                &lt;img class="increase-on-scroll-down" data-start="40" data-end="30" src="img1.png" alt>
+                                &lt;img class="increase-on-scroll-down" data-start="30" data-end="20" src="img1.png" alt>
                             </code>
                         </pre>
 
                         <div class="example">
-                            <img class="increase-on-scroll-down" src="img1.png" alt="">
+                            <div class="increase-on-scroll-down" data-start="30" data-end="20">
+                                <img src="imgs/ironMan.jpg" alt="">
+                            </div>
                         </div>
                     </div>
                 </section>
